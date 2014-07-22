@@ -1,0 +1,103 @@
+<body>
+<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/kenwheeler/slick/master/slick/slick.css" />
+    <style>
+	body{
+            background-color:#BBBBCC;
+	}
+        .item{
+            height:150px;
+            width:150px;
+            background-color:#CCCCFF;
+            padding:0px;
+            border:1px solid #000000;
+            border-radius:75px;
+            float:left;
+	    text-align:center;
+        }
+	.item a{
+	    position:relative;
+	    top:18px;
+	    font-size:100px;
+	}
+	.hide{
+	    display:none;
+	}
+	.item-page{
+	    display:none;
+	}
+
+	.item-row{
+            float:none;
+	    overflow:auto;
+	}
+	.list-parent{
+	    width:500px;
+	    height:500px;
+	    left:100px;
+	}
+	
+	.item a{
+		outline: 0;
+		color:#0000FF;
+		text-decoration: none;
+	}
+	/* payment methods on focus */
+	.item a:focus{
+		color:#FF0000;
+	}
+    </style>
+<div class="item_list hide" id="theParent">
+    <div class="item "><a href="">A</a></div>
+    <div class="item"><a href="">B</a></div>
+    <div class="item"><a href="">C</a></div>
+    <div class="item"><a href="">D</a></div>
+    <div class="item"><a href="">E</a></div>
+    <div class="item"><a href="">F</a></div>
+    <div class="item"><a href="">G</a></div>
+    <div class="item"><a href="">H</a></div>
+    <div class="item"><a href="">I</a></div>
+    <div class="item"><a href="">J</a></div>
+    <div class="item"><a href="">K</a></div>
+    <div class="item"><a href="">L</a></div>
+    <div class="item"><a href="">M</a></div>
+    <div class="item"><a href="">N</a></div>
+    <div class="item"><a href="">O</a></div>
+    <div class="item"><a href="">P</a></div>
+    <div class="item"><a href="">Q</a></div>
+    <div class="item"><a href="">R</a></div>
+    <div class="item"><a href="">S</a></div>
+    <div class="item"><a href="">T</a></div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script src="/kenwheeler/slick/raw/master/slick/slick.js"></script>
+<script src="js/pageriser.js"></script>
+<script>
+(function ( $ ) {
+	//accessibility tweaks - make tabbing go through pages rather than individual items
+	$.fn.slickPages = function() {
+		var carousel = $(this);
+		carousel.find(".slick-cloned a").attr("tabindex", "-1");
+		carousel.find(".slick-slide").each(function(index,obj) {
+			var slide = $(obj);
+			slide.attr("data-slick-slideNum",index);
+			slide.find("a").focus(function(event) {
+				var focus = parseInt(slide.attr("data-slick-slideNum"), 10);
+				var pageSize = carousel.slickGetOption("slidesToShow")
+				var pos = focus - focus%pageSize;
+				carousel.slickGoTo(pos);
+			});
+		});
+		return carousel;
+	}
+}( jQuery ));
+</script>
+<script>
+$("#theParent").arrange().slick({
+			accessiblity: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			centerPadding: '0',
+			infinite: false
+		}).slickPages();
+</script> 
+</body>
