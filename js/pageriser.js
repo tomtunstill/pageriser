@@ -1,7 +1,12 @@
 (function ( $ ) {
 	$.fn.arrange = function( options ) {
-		var pageCols = 3;
-		var pageRows = 3;
+		var defaults = {  
+			pageCols: 3,
+			pageRows: 3  			
+		};  
+		var options = $.extend(defaults, options);
+		var pageCols = options.pageCols;
+		var pageRows = options.pageRows;
 		var pageSize = pageCols*pageRows;
 		var element = $(this);
 		element.addClass("list-parent");
