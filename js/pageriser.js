@@ -5,8 +5,14 @@
 			pageRows: 3  			
 		};  
 		var options = $.extend(defaults, options);
-		var pageCols = options.pageCols;
-		var pageRows = options.pageRows;
+		var pageCols = element.attr("data-pageriser-pageCols").split(",");
+		if(pageCols==null||pageCols.length <= 0){
+			pageCols = options.pageCols;
+		}
+		var pageRows = element.attr("data-pageriser-pageRows");
+		if(pageRows==null||pageRows.length <= 0){
+			pageRows = options.pageRows;
+		}
 		var pageSize = pageCols*pageRows;
 		var element = $(this);
 		element.addClass("list-parent");
