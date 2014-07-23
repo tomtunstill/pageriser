@@ -6,7 +6,7 @@
 		};  
 		var options = $.extend(defaults, options);
 		var element = $(this);
-		var pageCols = element.attr("data-pageriser-pageCols").split(",");
+		var pageCols = element.attr("data-pageriser-pageCols");
 		if(pageCols==null||pageCols.length <= 0){
 			pageCols = options.pageCols;
 		}
