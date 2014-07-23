@@ -1,5 +1,5 @@
 (function ( $ ) {
-	$.fn.arrange = function( options ) {
+	$.fn.pagerise = function( options ) {
 		var defaults = {  
 			pageCols: 3,
 			pageRows: 3  			
