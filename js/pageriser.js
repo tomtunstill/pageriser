@@ -5,6 +5,7 @@
 			pageRows: 3  			
 		};  
 		var options = $.extend(defaults, options);
+		var element = $(this);
 		var pageCols = element.attr("data-pageriser-pageCols").split(",");
 		if(pageCols==null||pageCols.length <= 0){
 			pageCols = options.pageCols;
@@ -14,7 +15,6 @@
 			pageRows = options.pageRows;
 		}
 		var pageSize = pageCols*pageRows;
-		var element = $(this);
 		element.addClass("list-parent");
 		var divsToArrange = element.children();
 		var numberOfDivs = divsToArrange.length;
