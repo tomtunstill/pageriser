@@ -3,4 +3,8 @@ pageriser
 
 jQuery plugin to arrange a list of divs into pages
 
-I need to make this responsive so the number of rows/columns can respond to browser size
+Looks like the Slick carousel now supports this as standard
+
+http://kenwheeler.github.io/slick/
+
+Take a look at 'grid mode' if you need this functionality
